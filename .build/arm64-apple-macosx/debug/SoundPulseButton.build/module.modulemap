@@ -1,0 +1,4 @@
+module SoundPulseButton {
+    header "/Users/mikhailkogan/hearly-ios/SoundPulseButton/.build/arm64-apple-macosx/debug/SoundPulseButton.build/SoundPulseButton-Swift.h"
+    requires objc
+}
