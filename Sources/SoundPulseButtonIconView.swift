@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUIX
 
 /// Icon view with shimmer effect for SoundPulseButton
 struct SoundPulseButtonIconView: View {
@@ -65,8 +64,8 @@ struct SoundPulseButtonIconView: View {
             .renderingMode(.template)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .width(configuration.layout.iconSize)
-            .height(configuration.layout.iconSize)
+            .frame(width: configuration.layout.iconSize)
+            .frame(height: configuration.layout.iconSize)
             .scaleEffect(scale)
             .foregroundStyle(configuration.colors.icon)
             .animation(

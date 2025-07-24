@@ -2,6 +2,8 @@
 
 A highly customizable SwiftUI button component with audio level visualization and various visual effects including pulse rings, ripple waves, shimmer effects, and more.
 
+![SoundPulseButton Demo](Assets/demo.png)
+
 ## Visual Effects
 
 **SoundPulseButton** provides multiple customizable visual effects that activate during different states:
@@ -47,6 +49,17 @@ Or add it through Xcode:
 2. Enter the repository URL
 3. Select version and add to target
 
+## Quick Example
+
+Try out the interactive example to see all effects in action:
+
+```bash
+cd SoundPulseButton
+swift run SoundPulseButtonExample
+```
+
+Or open the package in Xcode and run the `SoundPulseButtonExample` target.
+
 ## Basic Usage
 
 ```swift
@@ -55,7 +68,7 @@ import SoundPulseButton
 SoundPulseButton(
     isListening: viewModel.isListening,
     isLoading: viewModel.isLoading,
-    audioLevel: viewModel.audioLevel,
+    audioBufferProvider: audioProvider,
     onTap: handleMicrophoneTap
 )
 ```
@@ -98,22 +111,39 @@ SoundPulseButton(...)
 
 ### Effects Configuration
 
+The package includes an interactive example showcasing all available effects:
+
+- **Background Rotation** - Rotates gradient background during listening
+- **Icon Shimmer** - Adds shimmer effect to the icon
+- **Inner Circles** - Shows pulsing inner circles
+- **Ripples** - Creates expanding ripple waves
+- **Haptic Feedback** - Enables tactile feedback on interactions
+- **Shadow Effects** - Customizable drop shadows
+
 ```swift
 // Configure inner pulse rings
 SoundPulseButton(...)
-    .withInnerCircles(circle: 3)
+    .withInnerCircles(count: 3)
 
 // Configure ripple waves
 SoundPulseButton(...)
     .withRipples(count: 3)
 
+// Configure background rotation
+SoundPulseButton(...)
+    .withBackgroundRotation(idle: false, listening: true)
+
+// Configure haptic feedback
+SoundPulseButton(...)
+    .withHaptic(enabled: true)
+
 // Configure shimmer effect
 SoundPulseButton(...)
-    .withShimmer(.init(
-        startDelay: 1.0,
-        animationDuration: 2.0,
-        radiusMultiplier: 3.0
-    ))
+    .withIconShimmering()
+
+// Configure shadow
+SoundPulseButton(...)
+    .withShadow()
 ```
 
 ## Configuration Structure
@@ -180,7 +210,6 @@ When `isLoading` is true:
 ## Dependencies
 
 - [ColorfulX](https://github.com/Lakr233/ColorfulX) - For multicolor gradient backgrounds
-- [SwiftUIX](https://github.com/SwiftUIX/SwiftUIX) - For enhanced SwiftUI utilities
 
 ## Performance Considerations
 

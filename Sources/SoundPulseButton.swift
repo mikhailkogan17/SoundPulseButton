@@ -8,7 +8,6 @@
 @preconcurrency import AVFoundation
 import ColorfulX
 import SwiftUI
-import SwiftUIX
 
 /// A customizable sound pulse button with audio level visualization and various effects
 @MainActor
@@ -77,8 +76,10 @@ public struct SoundPulseButton: View {
 
     public var body: some View {
         button
-            ._onAppearAndChange(of: audioLevel) { newValue in
-                audioLevel = newValue
+            .onAppear {
+                updateAnimationState()
+            }
+            .onChange(of: audioLevel) {
                 updateAnimationState()
             }
             .onChange(of: isListening) {
@@ -116,8 +117,8 @@ public struct SoundPulseButton: View {
                     rotation: isRotationActive ? backgroundRotation : 0,
                     configuration: configuration
                 )
-                .width(configuration.layout.baseRadius * configuration.layout.frameMultiplier)
-                .height(configuration.layout.baseRadius * configuration.layout.frameMultiplier)
+                .frame(width: configuration.layout.baseRadius * configuration.layout.frameMultiplier)
+                .frame(height: configuration.layout.baseRadius * configuration.layout.frameMultiplier)
                 .mask {
                     backgroundMask
                 }
@@ -137,8 +138,10 @@ public struct SoundPulseButton: View {
             configuration: configuration
         ))
         .disabled(isLoading)
-        .width(configuration.layout.baseRadius * configuration.layout.frameMultiplier)
-        .height(configuration.layout.baseRadius * configuration.layout.frameMultiplier)
+        .frame(
+            width: configuration.layout.baseRadius * configuration.layout.frameMultiplier,
+            height: configuration.layout.baseRadius * configuration.layout.frameMultiplier
+        )
         .clipShape(Circle())
         .contentShape(Circle())
         .padding(.vertical)
@@ -147,7 +150,7 @@ public struct SoundPulseButton: View {
     private var backgroundMask: some View {
         ZStack {
             Circle()
-                .width(buttonRadius * 2).height(buttonRadius * 2)
+                .frame(width: buttonRadius * 2, height: buttonRadius * 2)
                 .animation(
                     .easeInOut(duration: configuration.effects.button.scaleAnimationDuration)
                         .delay(

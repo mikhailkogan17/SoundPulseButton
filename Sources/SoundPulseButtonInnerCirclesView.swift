@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUIX
 
 /// Inner pulse circles view for SoundPulseButton
 struct SoundPulseButtonInnerCirclesView: View {
@@ -24,7 +23,7 @@ struct SoundPulseButtonInnerCirclesView: View {
                     .fill(configuration.colors.pulse)
                     .blendMode(.softLight)
                     .opacity(configuration.effects.innerPulse.opacity)
-                    .width(radius * 2).height(radius * 2)
+                    .frame(width: radius * 2, height: radius * 2)
                     .animation(
                         .easeInOut(duration: configuration.effects.button.scaleAnimationDuration)
                             .delay(
