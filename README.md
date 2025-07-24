@@ -1,3 +1,7 @@
+![Swift](https://img.shields.io/badge/Swift-6.1-orange)
+![Platforms](https://img.shields.io/badge/iOS-18+-blue)
+![License](https://img.shields.io/github/license/mikhailkogan17/SoundPulseButton)
+
 # SoundPulseButton
 
 A highly customizable SwiftUI button component with audio level visualization and various visual effects including pulse rings, ripple waves, shimmer effects, and more.
