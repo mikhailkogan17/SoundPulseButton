@@ -1,5 +1,5 @@
 ![Swift](https://img.shields.io/badge/Swift-6.1-orange)
-![Platforms](https://img.shields.io/badge/iOS-18+-blue)
+![Platforms](https://img.shields.io/badge/iOS-17+-blue)
 ![License](https://img.shields.io/github/license/mikhailkogan17/SoundPulseButton)
 
 # SoundPulseButton
