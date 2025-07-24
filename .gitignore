@@ -132,3 +132,5 @@ xcuserdata
 **/xcshareddata/xcschemes/*
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,swiftpm,swiftpackagemanager,fastlane,xcode
+
+.DS_store
