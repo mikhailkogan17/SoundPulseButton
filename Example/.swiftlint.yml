@@ -1,0 +1,65 @@
+included:
+  - Hearly
+
+excluded:
+  - Pods
+  - build
+  - .build
+
+# Rule configurations
+line_length: 120
+
+# Disable some rules
+disabled_rules:
+  - type_name
+  - file_length
+  - type_body_length
+  - cyclomatic_complexity
+  - function_body_length
+
+# Enable additional rules
+opt_in_rules:
+  - closure_spacing
+  - empty_count
+  - force_unwrapping
+  - implicitly_unwrapped_optional
+  - operator_usage_whitespace
+  - overridden_super_call
+  - redundant_nil_coalescing
+  - switch_case_alignment
+  - unneeded_parentheses_in_closure_argument
+  - vertical_whitespace_closing_braces
+
+identifier_name:
+  excluded:
+  - ui
+  - to
+  - db
+  - id
+  - x
+  - y
+  - z
+  - r
+  - g
+  - b
+  - a
+
+# Custom rule configurations
+nesting:
+  type_level: 2
+
+large_tuple:
+  warning: 3
+
+# SwiftUI-specific nesting rule
+custom_rules:
+  swiftui_view_nesting:
+    name: "SwiftUI View Nesting"
+    regex: '^\s{18,}(VStack|HStack|ZStack|LazyVStack|LazyHStack|ScrollView|Group|ForEach|Section)\s*[{\(]'
+    message: "SwiftUI views nested too deep. Extract to computed properties to improve readability."
+    severity: warning
+  swiftui_deep_nesting:
+    name: "SwiftUI Deep Nesting"
+    regex: '^\s{28,}(VStack|HStack|ZStack|LazyVStack|LazyHStack|ScrollView|Group|ForEach|Section)\s*[{\(]'
+    message: "SwiftUI views nested extremely deep. Refactor immediately for maintainability."
+    severity: error

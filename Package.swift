@@ -16,15 +16,13 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Lakr233/ColorfulX", from: "5.6.0"),
-        .package(url: "https://github.com/SwiftUIX/SwiftUIX", from: "0.2.0")
+        .package(url: "https://github.com/Lakr233/ColorfulX", from: "5.6.0")
     ],
     targets: [
         .target(
             name: "SoundPulseButton",
             dependencies: [
-                "ColorfulX",
-                "SwiftUIX"
+                "ColorfulX"
             ],
             path: "Sources"
         )

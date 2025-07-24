@@ -1,0 +1,45 @@
+# SwiftFormat Configuration
+
+# Swift version
+--swiftversion 5.9
+
+# Line length and wrapping
+--maxwidth 120
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--wrapreturntype if-multiline
+--closingparen balanced
+
+# Basic formatting
+--linebreaks lf
+--indent 4
+--tabwidth 4
+--smarttabs enabled
+--trimwhitespace always
+
+# Spacing around parentheses and braces
+--emptybraces spaced
+--elseposition same-line
+--guardelse same-line
+--allman false
+
+# Remove trailing commas
+--commas inline
+
+# Wrapping rules for long lines
+--wrapternary before-operators
+
+# Function and type attributes
+--funcattributes prev-line
+--typeattributes prev-line
+--storedvarattrs prev-line
+--computedvarattrs prev-line
+
+# File exclusions
+--exclude Pods
+--exclude .build
+--exclude Package.swift
+
+# Disable rules that conflict with brace placement
+--disable wrapMultilineStatementBraces
