@@ -53,16 +53,9 @@ Or add it through Xcode:
 2. Enter the repository URL
 3. Select version and add to target
 
-## Quick Example
+## Example
 
-Try out the interactive example to see all effects in action:
-
-```bash
-cd SoundPulseButton
-swift run SoundPulseButtonExample
-```
-
-Or open the package in Xcode and run the `SoundPulseButtonExample` target.
+Try it in seconds: Example project is located in Example/SoundPulseButtonExample.xcodeproj.
 
 ## Basic Usage
 
@@ -222,37 +215,14 @@ When `isLoading` is true:
 
 - [ColorfulX](https://github.com/Lakr233/ColorfulX) - For multicolor gradient backgrounds
 
-## Performance Considerations
-
-- Audio level updates are throttled to ~60fps to prevent excessive redraws
-- Animations use optimized SwiftUI animation modifiers
-- Timers are properly invalidated when stopping animations
-- Memory usage is minimal with efficient state management
-
-## Accessibility
-
-The button supports:
-- VoiceOver navigation
-- Haptic feedback for interactions
-- Proper button semantics
-- Dynamic type scaling (through SwiftUI automatic support)
-
-## Thread Safety
-
-All animations and state updates are performed on the main thread using proper SwiftUI state management.
-
 ## License
 
 This project is available under the MIT license. See the LICENSE file for more info.
 
 ## Author
 
-Created by Mikhail Kogan
+Created by Mikhail Kogan ([mikhailkogan17@gmail.com](mailto:mikhailkogan17@gmail.com))
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Contact
-
-For support or inquiries, email [mikhailkogan17@gmail.com](mailto:mikhailkogan17@gmail.com).
