@@ -95,14 +95,21 @@ SoundPulseButton(...)
     .withSize(60)
 ```
 
-### Colors
+### Background Colors
 
-
-// Custom gradient
+```swift
+// Mesh Gradient
 SoundPulseButton(...)
-    .withMeshGradient(
-        colors: [.red, .blue, .purple],
-        positions: [CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0.5), CGPoint(x: 0.5, y: 1)]
+    .withBackground(
+        idle: .color(.accentColor),
+        listening: .color(.red)
+    )
+
+// Static Colors
+SoundPulseButton(...)
+    .withBackground(
+        idle: .mesh([.purple, .indigo, .cyan]), 
+        listening: .mesh([.purple, .indigo, .cyan])
     )
 ```
 

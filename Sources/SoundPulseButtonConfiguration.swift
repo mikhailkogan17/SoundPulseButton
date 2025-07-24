@@ -25,22 +25,6 @@ public struct SoundPulseButtonConfiguration {
 
     /// Color configuration for button components
     public struct Colors {
-//        public var gradientColors: [Color] = [
-//            .init(
-//                #colorLiteral(red: 0.7098039216, green: 0.3058823529, blue: 0.9921568627, alpha: 1)
-//            ),
-//            .init(
-//                #colorLiteral(red: 0.1843137255, green: 0.5529411765, blue: 1, alpha: 1)
-//            ),
-//            .init(
-//                #colorLiteral(red: 0.1725490196, green: 0.3294117647, blue: 0.9960784314, alpha: 1)
-//            )
-//        ]
-//        public var gradientPositions: [CGPoint] = [
-//            .init(x: 0.15, y: 0.15),
-//            .init(x: 1, y: 0.5),
-//            .init(x: 0.5, y: 1)
-//        ]
         public var pulse: Color = .white
         public var icon: Color = .white
         public var shadow: Color = .black
