@@ -98,14 +98,14 @@ SoundPulseButton(...)
 ### Background Colors
 
 ```swift
-// Mesh Gradient
+// Static Colors
 SoundPulseButton(...)
     .withBackground(
         idle: .color(.accentColor),
         listening: .color(.red)
     )
 
-// Static Colors
+// Mesh Gradient
 SoundPulseButton(...)
     .withBackground(
         idle: .mesh([.purple, .indigo, .cyan]), 
@@ -214,9 +214,9 @@ When `isLoading` is true:
 
 ## Requirements
 
-- iOS 16.0+ / macOS 13.0+
-- Swift 5.9+
-- Xcode 15.0+
+- iOS 17.0+ / macOS 13.0+
+- Swift 6.1+
+- Xcode 16.0+
 
 ## Dependencies
 
