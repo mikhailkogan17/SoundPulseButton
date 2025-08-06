@@ -63,7 +63,7 @@ public struct SoundPulseButtonConfiguration {
         public struct InnerPulse {
             public var circleCount: Int = 0 // Disabled by default
             public var interStepDistance: CGFloat = 9
-            public var opacity: Double = 0.15
+            public var opacity: Double = 0.2
             public var stepAnimationDelay: Double = 0.03
 
             public init() { }

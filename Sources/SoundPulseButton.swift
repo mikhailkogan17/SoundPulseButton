@@ -16,6 +16,7 @@ public struct SoundPulseButton: View {
 
     public let isListening: Bool
     public let isLoading: Bool
+    public let loadingProgress: CGFloat?
 
     public let onTap: () -> Void
 
@@ -44,7 +45,7 @@ public struct SoundPulseButton: View {
     @State
     private var audioLevel: Double = 0
     @State
-    private var buttonRadius: CGFloat = 0
+    private var buttonRadius: CGFloat = 44
     private let audioBufferProvider: SoundPulseButtonAudioBufferProvider
     @State
     private var audioLevelRepository: AudioLevelRepository?
@@ -58,16 +59,19 @@ public struct SoundPulseButton: View {
     /// - Parameters:
     ///   - isListening: Whether the button is actively listening
     ///   - isLoading: Whether the button is in loading state
+    ///   - loadingProgress: Progress value for loading animation (0.0 to 1.0), nil for indeterminate
     ///   - audioBufferProvider: Provider for audio buffer stream
     ///   - onTap: Callback when button is tapped
     public init(
         isListening: Bool,
         isLoading: Bool,
+        loadingProgress: CGFloat? = nil,
         audioBufferProvider: SoundPulseButtonAudioBufferProvider,
         onTap: @escaping () -> Void
     ) {
         self.isListening = isListening
         self.isLoading = isLoading
+        self.loadingProgress = loadingProgress
         self.audioBufferProvider = audioBufferProvider
         self.onTap = onTap
     }
@@ -77,6 +81,7 @@ public struct SoundPulseButton: View {
     public var body: some View {
         button
             .onAppear {
+                buttonRadius = configuration.layout.baseRadius
                 updateAnimationState()
             }
             .onChange(of: audioLevel) {
@@ -172,7 +177,11 @@ public struct SoundPulseButton: View {
     }
 
     private var loader: some View {
-        SoundPulseButtonLoaderView(rotation: loaderRotation, configuration: configuration)
+        SoundPulseButtonLoaderView(
+            rotation: loaderRotation,
+            progress: loadingProgress,
+            configuration: configuration
+        )
     }
 
     private var ripples: some View {
@@ -555,4 +564,3 @@ private class MockAudioBufferProvider: SoundPulseButtonAudioBufferProvider, @unc
         }
     }
 }
-
