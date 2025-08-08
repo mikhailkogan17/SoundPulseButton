@@ -38,6 +38,11 @@ final actor AudioLevelRepository {
     }
 
     func processAudioBuffer(_ buffer: AVAudioPCMBuffer) {
+        guard buffer.frameLength > 0 else {
+            print("AudioLevelRepository: Empty buffer with frameLength: \(buffer.frameLength)")
+            return
+        }
+
         guard let channelData = buffer.floatChannelData?[0] else {
             if let lastLogTime = lastNoChannelDataLogTime,
                Date.now.timeIntervalSince(lastLogTime) < noChannelDataLogInterval {
@@ -72,9 +77,21 @@ final actor AudioLevelRepository {
     }
 
     private func calculateRMS(_ channelData: UnsafeMutablePointer<Float>, frameCount: Int) -> Float {
+        guard frameCount > 0 else {
+            print("AudioLevelRepository: Invalid frameCount: \(frameCount)")
+            return 0.0
+        }
+
         var sum: Float = 0.0
         vDSP_svesq(channelData, 1, &sum, vDSP_Length(frameCount))
-        return sqrt(sum / Float(frameCount))
+
+        let rmsSquared = sum / Float(frameCount)
+        guard rmsSquared >= 0 else {
+            print("AudioLevelRepository: Invalid RMS squared: \(rmsSquared)")
+            return 0.0
+        }
+
+        return sqrt(rmsSquared)
     }
 
     private func updateAdaptiveLevels(rms: Float) {
